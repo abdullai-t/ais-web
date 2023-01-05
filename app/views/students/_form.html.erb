@@ -1,0 +1,55 @@
+
+
+  <%= form_with(model: student) do |form| %>
+    <% if student.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+        <ul>
+          <% student.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :first_name, style: "display: block" %>
+      <%= form.text_field :first_name, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :surname, style: "display: block" %>
+      <%= form.text_field :surname, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :address, style: "display: block" %>
+      <%= form.text_field :address, class:"form-control" %>
+    </div>
+
+
+    <div class="mb-3">
+      <%= form.label :grade, style: "display: block" %>
+      <%= form.text_field :grade, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :dob, style: "display: block" %>
+      <%= form.date_field :dob, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :contact, style: "display: block" %>
+      <%= form.text_field :contact, class:"form-control" %>
+    </div>
+
+      <div class="input-group mb-3">
+      <%= form.file_field :image, class:"form-control", placeholder:"select student's image" %>
+    </div>
+
+    <div class="mt-3 full-width">
+      <%= link_to "Back", students_path, class:"btn btn-dark btn-lg" %>
+      <%= form.submit class:"btn btn-secondary btn-lg ml-4" %>
+    </div>
+  <% end %>

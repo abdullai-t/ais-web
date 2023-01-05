@@ -1,0 +1,57 @@
+<%= render "auth/header"%>
+<div class="p-2">
+  <p style="color: green"><%= notice %></p>
+
+      <div class="container">
+        <h1 class="display-4">
+        <% if @student.image.attached? %>
+            <%= image_tag (@student.image), class: "size-img"%>
+        <%end %>
+          <%= @student.first_name %>
+          <%= @student.surname %>
+        </h1>
+
+        <div class="student-info-display">
+        <div class="grid-3">
+          <div>
+            <span>First Name</span>
+            <h4 class="grey-me"><%= @student.first_name %></h4>
+          </div>
+
+          <div>
+            <span class="">Surname</span>
+            <h4 class="grey-me"><%= @student.surname %></h4>
+          </div>
+          <div>
+            <span>Grade</span>
+            <h4 class="grey-me"><%= @student.grade %></h4>
+          </div>
+          <div>
+            <span>Date of Birth</span>
+            <h4 class="grey-me"><%= @student.dob %></h4>
+          </div>
+          <div>
+            <span>Contact</span>
+            <h4 class="grey-me"><%= @student.contact %></h4>
+          </div>
+          <div>
+            <span>Address</span>
+            <h4 class="grey-me"><%= @student.address %></h4>
+          </div>
+
+        </div>
+
+
+        </div>
+          <div class="mt-5 flex-me">
+          <%= link_to "Back", students_path, class:"btn btn-secondary btn-lg", style:"margin-right:10px"%>
+          <%= link_to "Edit", edit_student_path(@student),class:"btn btn-primary btn-lg", style:"margin-right:10px" %>
+          <%= button_to "Delete", @student, method: :delete , class:"btn btn-danger btn-lg", style:"margin-right:10px"%>
+        </div>
+
+
+      </div>
+
+
+
+</div>
