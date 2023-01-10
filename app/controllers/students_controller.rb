@@ -1,24 +1,11 @@
 class StudentsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_student, only: %i[ show edit update destroy ] 
   include ActiveStorage::SetCurrent
 
   # GET /students or /students.json
   def index
     @students = Student.all
-
-    # render json: { students: @students.map { |p|         {
-    #     "id": p.id,
-    #     "first_name": p.first_name,
-    #     "surname": p.surname,
-    #     "dob": p.dob,
-    #     "grade": p.grade,
-    #     "image": rails_blob_url(p.image),
-    #     "address": p.address,
-    #     "contact": p.contact,
-    #     "created_at": p.created_at,
-    #     "updated_at": p.updated_at
-    #     } }, message: "it works"  } 
   end
 
   # GET /students/1 or /students/1.json
@@ -37,6 +24,7 @@ class StudentsController < ApplicationController
   # POST /students or /students.json
   def create
     @student = Student.new(student_params)
+    
 
     respond_to do |format|
       if @student.save
@@ -72,6 +60,11 @@ class StudentsController < ApplicationController
     end
   end
 
+
+  def bulk_create
+    render :json =>{data:"yaya"}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -80,6 +73,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:first_name, :surname, :address, :grade, :dob, :contact, :image)
+      params.require(:student).permit(:first_name, :surname, :address, :grade, :dob, :contact, :image, :email, :ref_number)
     end
 end

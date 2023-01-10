@@ -12,11 +12,18 @@
         <li class="nav-item">
          <%= link_to "Add New student", new_student_path, class:"nav-link" %>
         </li>
+        <li class="nav-item flex-me">
+         <%= link_to "Import Students", bulk_create_path, class:"nav-link" %>
+        </li>
+
       </ul>
       <span class="navbar-text">
-        <%= current_user.email %>
+         <% if current_user.email %>
+            <%= current_user.email %>
+        <%end %>
+        
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"none"%>
       </span>
     </div>
   </div>
-</nav>
+</nav> 

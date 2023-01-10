@@ -14,14 +14,23 @@
         <div class="student-info-display">
         <div class="grid-3">
           <div>
-            <span>First Name</span>
-            <h4 class="grey-me"><%= @student.first_name %></h4>
+            <span>Full Name</span>
+            <h4 class="grey-me"><%= @student.first_name %> <%= @student.surname %></h4>
           </div>
 
           <div>
-            <span class="">Surname</span>
-            <h4 class="grey-me"><%= @student.surname %></h4>
+            <span class="">Email</span>
+            <h4 class="grey-me"><%= @student.email %></h4>
           </div>
+             <div>
+            <span class="">Student ID</span>
+            <h4 class="grey-me"><%= @student.ref_number %></h4>
+          </div>
+          <div>
+            <span class="">Date Enrolled</span>
+            <h4 class="grey-me"><%= @student.enrolled_at %></h4>
+          </div>
+       
           <div>
             <span>Grade</span>
             <h4 class="grey-me"><%= @student.grade %></h4>

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
    post "/users/sign_up"=>'devise/registrations#create'
    end
   resources :students
+  get "/bulk_create"=>"students#bulk_create"
   root "students#index"
 end
