@@ -7,16 +7,16 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mb-3">
     <%= f.label :email, class:"form-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    <%= f.email_field :email, autofocus: true, class:"form-control" %>
   </div>
 
   <div class="field mb-3">
     <%= f.label :password, class:"form-label"%><br />
-    <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
+    <%= f.password_field :password,class:"form-control" %>
   </div>
 
   <div class="actions center-me">
-    <%= f.submit "Log in",class:"btn btn-primary btn-lg", style:"width:30%; background-color:#6610f2" %>
+    <%= f.submit "Log in",class:"btn primary btn-lg", style:"width:30%; color:white" %>
   </div>
 <% end %>
 

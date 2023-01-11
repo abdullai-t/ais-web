@@ -1,3 +1,4 @@
+require 'csv'
 class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student, only: %i[ show edit update destroy ] 
@@ -60,9 +61,21 @@ class StudentsController < ApplicationController
     end
   end
 
-
   def bulk_create
-    render :json =>{data:"yaya"}
+    csv_file = params[:students_csv]
+    CSV.foreach(csv_file, headers: true) do |row|
+      student = Student.new
+      student.first_name = row["First Name"]
+      student.surname = row["Surname"]
+      student.email = row["Email"]
+      student.address = row["Address"]
+      student.contact = row["Contact"]
+      student.dob = row["DOB"]
+      student.grade = row["Class"]
+
+      student.save
+    end
+     redirect_to students_path
   end
 
   private

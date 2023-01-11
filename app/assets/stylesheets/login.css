@@ -59,3 +59,7 @@ border: 1px solid #6f42c1 ;
     text-decoration: none;
     margin-left: 10px;
 }
+
+.primary{
+    background-color: #4a154b !important;
+}

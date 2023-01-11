@@ -19,6 +19,7 @@ gem 'aws-sdk-s3',  '~> 1'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
 end
 
 group :development do
@@ -29,4 +30,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec-rails'
+
 end
