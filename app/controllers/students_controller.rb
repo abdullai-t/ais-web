@@ -1,4 +1,4 @@
-require 'csv'
+
 class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_student, only: %i[ show edit update destroy ] 
@@ -7,6 +7,11 @@ class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
     @students = Student.all
+
+    # respond_to do |format|
+    #   format.html
+    #   format.csv {send_data @students.to_csv}
+    # end
   end
 
   # GET /students/1 or /students/1.json
@@ -76,6 +81,29 @@ class StudentsController < ApplicationController
       student.save
     end
      redirect_to students_path
+  end
+
+  def self.to_csv
+    @students = Students.all
+    attri = %w{ID  frst_name surname email contact class  date_enrolled dob  address}
+    CSV.generate(headers: true) do | csv|
+      csv << attri
+
+      @students.each do | student |
+        csv << attri.map { |att| student.send(att)}
+      end
+    end
+  end
+
+
+  def promote_students
+
+    Student.all.each do |student|
+      student.grade = student.grade.to_i + 1
+      student.save
+    end
+
+  redirect_to students_path
   end
 
   private

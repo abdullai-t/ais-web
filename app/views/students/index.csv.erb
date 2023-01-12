@@ -1,0 +1,13 @@
+<%= fields=[:ID, :Name, :Surname, :DOB, :Enrolled, :Class, :Contact, :Email, :Address].join(",")%>
+<% @students.each do |student| %>
+<% id =  student.ref_number%>
+<% name =  student.enrolled_at%>
+<% surname =  student.surname%>
+<% dob =  student.dob%>
+<% enrolled =  student.enrolled_at%>
+<% grade =  student.grade%>
+<% contact =  student.contact%>
+<% email =  student.email%>
+<% address =  student.address%>
+<%= [id, name, surname, dob, enrolled, grade, contact, email, address].join(",")%>
+<% end %>

@@ -41,6 +41,31 @@
           </div>
            <% end %>
         </li>
+        <li class="nav-item">
+         <%= link_to "Export Students ", students_path(format: :csv), class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+        <button type="button" class="btn btn-link nav-link" data-bs-toggle="modal" data-bs-target="#exportStudents">
+          Promote Students 
+        </button>
+          <div class="modal fade" id="exportStudents" tabindex="-1" aria-labelledby="exportStudentsLabel" aria-hidden="true" data-bs-keyboard="false">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exportStudentsLabel">Promotion Confirmation</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <p>Are you sure you want to promote all students ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <%= link_to "Yes", promote_students_path, class:"btn btn-success", style:"color:white" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
       </ul>
       <span class="navbar-text">

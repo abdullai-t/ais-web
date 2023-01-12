@@ -6,5 +6,7 @@ Rails.application.routes.draw do
    end
   resources :students
   post "/bulk_create"=>"students#bulk_create"
+  get "/promote/students"=>"students#promote_students"
+  get "/export/students"=>"students#export_students"
   root "students#index"
 end
