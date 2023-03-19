@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "bin/rails", "use": "@vercel/ruby" }
-  ],
+  "builds": [{
+    "src": "config/rails_init.rb",
+    "use": "@vercel/ruby"
+  }],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "bin/rails server -p $PORT -e production"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "http://localhost:3000/$1" }
   ]
 }
